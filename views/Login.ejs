@@ -1,0 +1,15 @@
+<% layout('layout') -%>
+
+<div class="auth">
+  <form class="auth__form" method="POST" action="/auth/local/login">
+    <input type="text" placeholder="username" name="username" />
+    <input type="password" placeholder="password" name="password" />
+    <button type="submit">Login</button>
+    <p>No account? <a href="/auth/local/register">Register</a></p>
+
+    <div class="auth__oauthBtns">
+      <h4>Or sign in with OAuth2.0</h4>
+      <a href="/auth/google" class="btn-google">Google</a>
+    </div>
+  </form>
+</div>

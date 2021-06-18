@@ -1,0 +1,46 @@
+.flash__messages {
+  width: 100%;
+  padding: 0;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+.flash__successMessage {
+  width: 30%;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  font-weight: 500;
+  background-color: rgba(17, 101, 48, 0.3);
+  color: #116530;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.flash__errorMessage {
+  width: 30%;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  font-weight: 500;
+  background-color: rgba(191, 42, 46, 0.3);
+  color: #bf2a2e;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  .flash__successMessage {
+    width: 70%;
+  }
+  .flash__errorMessage {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .flash__successMessage {
+    width: 90%;
+  }
+  .flash__errorMessage {
+    width: 90%;
+  }
+}

@@ -1,0 +1,21 @@
+<% layout('layout') -%>
+
+<div class="errorPage">
+  <div class="errorPage__row">
+    <div class="errorPage__col">
+      <img src="/images/notfound1.png" alt="picture" />
+    </div>
+
+    <div class="errorPage__col">
+      <h1>
+        <%= error.statusCode %> <br />
+        <%= error.message %>
+      </h1>
+      <img src="/images/notfound2.png" alt="picture" />
+    </div>
+
+    <div class="errorPage__col">
+      <img src="/images/notfound3.png" alt="picture" />
+    </div>
+  </div>
+</div>

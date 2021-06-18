@@ -1,0 +1,31 @@
+<% layout('layout') -%>
+
+<div class="auth">
+  <form class="auth__form" method="POST" action="/auth/local/register">
+    <input
+      type="text"
+      placeholder="name"
+      name="name"
+      value="<%= typeof name != 'undefined' ? name : '' %>"
+    />
+    <input
+      type="text"
+      placeholder="username"
+      name="username"
+      value="<%= typeof username != 'undefined' ? username : '' %>"
+    />
+    <input
+      type="password"
+      placeholder="password"
+      name="password"
+      value="<%= typeof password != 'undefined' ? password : '' %>"
+    />
+    <button type="submit">Create account</button>
+    <p>Already have an account? <a href="/auth/login">Login</a></p>
+
+    <div class="auth__oauthBtns">
+      <h4>Or sign in with OAuth2.0</h4>
+      <a href="/auth/google" class="btn-google">Google</a>
+    </div>
+  </form>
+</div>

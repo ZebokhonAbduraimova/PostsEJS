@@ -1,0 +1,33 @@
+<% layout('layout') -%>
+<div class="home container">
+  <div class="home__posts">
+    <% posts.forEach(function(post){ %>
+    <div class="home__post">
+      <div class="home__post__top">
+        <% if(post.pictureName){ %>
+        <img src="/pictures/<%= post.pictureName %>" alt="picture" />
+        <% }else{ %>
+        <img src="/images/defaultpost.png" alt="picture" />
+        <% } %>
+      </div>
+      <div class="home__post__bottom">
+        <div class="home__post__bottom__info">
+          <p>
+            posted by
+            <strong><%= post.createdBy.name %></strong>
+          </p>
+          <p class="home__post__bottom__info__date">
+            <%= moment(post.dateCreated).calendar() %>
+          </p>
+        </div>
+        <div class="home__post__bottom__content">
+          <p><%- post.content.slice(0, 200) %></p>
+        </div>
+        <div class="home__post__bottom__readLink">
+          <a href="/posts/<%=post._id%>">Read</a>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>

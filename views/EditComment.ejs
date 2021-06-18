@@ -1,0 +1,13 @@
+<% layout('layout') -%>
+
+<div class="editComment">
+  <a href="/posts/<%=comment.toPost._id%>">Back</a>
+  <form
+    method="POST"
+    action="/comments/edit/<%= comment._id %>?_method=PUT"
+    id="editComment__form"
+  >
+    <input type="text" name="content" value="<%=comment.content %>" />
+    <button type="submit">Save</button>
+  </form>
+</div>

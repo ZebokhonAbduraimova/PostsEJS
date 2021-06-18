@@ -1,0 +1,15 @@
+<% layout('layout') -%>
+
+<div class="deleteConfirmation">
+  <a href="/posts">Go Back</a>
+  <div class="deleteConfirmation__content">
+    <p>Are you sure you want to permanently delete selected item?</p>
+    <form
+      action="<%= deleteUrl %>?_method=DELETE"
+      method="POST"
+      id="deleteConfirmation__form"
+    >
+      <button type="submit">Confirm</button>
+    </form>
+  </div>
+</div>

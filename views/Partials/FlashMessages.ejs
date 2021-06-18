@@ -1,0 +1,21 @@
+<% if (typeof successMessages != 'undefined') { %>
+<div class="flash__messages">
+  <% successMessages.forEach(function(message){ %>
+  <div class="flash__successMessage">
+    <p><%= message %></p>
+  </div>
+  <% }); %>
+</div>
+<% } %>
+
+<span></span>
+
+<% if (typeof errorMessages != 'undefined') { %>
+<div class="flash__messages">
+  <% errorMessages.forEach(function(message){ %>
+  <div class="flash__errorMessage">
+    <p><%= message %></p>
+  </div>
+  <% }); %>
+</div>
+<% } %>

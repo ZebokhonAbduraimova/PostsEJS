@@ -1,0 +1,22 @@
+.deleteConfirmation {
+  width: 30%;
+  margin: auto;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  box-shadow: var(--box-shadow);
+}
+.deleteConfirmation__content {
+  text-align: center;
+}
+
+@media only screen and (max-width: 1024px) {
+  .deleteConfirmation {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .deleteConfirmation {
+    width: 90%;
+  }
+}

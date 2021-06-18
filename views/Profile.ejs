@@ -1,0 +1,99 @@
+<% layout('layout') -%>
+
+<div class="profile">
+  <div class="profile__userInfo">
+    <div class="profile__userInfo__left">
+      <% if(user.thumbnailName){ %>
+      <img src="/pictures/<%= user.thumbnailName %>" alt="thumbnail" />
+      <% } else{ %>
+      <img src="/images/thumbnail.png" alt="thumbnail" />
+      <% } %>
+    </div>
+
+    <div class="profile__userInfo__right">
+      <h1><%= user?.name %></h1>
+      <p>Update thumbnail picture</p>
+      <form
+        action="/profile/thumbnail"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <input
+          type="file"
+          name="file"
+          id="file"
+          accept="image/*"
+          class="profile__userInfo__thumbnail__file"
+        />
+        <button type="submit">Upload</button>
+      </form>
+    </div>
+  </div>
+
+  <div>
+    <% if(posts.length === 0 && comments.length === 0){ %>
+    <p class="profile__no__activity">No activity to show yet</p>
+    <% } %>
+  </div>
+
+  <% if(posts && posts.length > 0){ %>
+  <h2>Your posts</h2>
+  <div class="profile__items">
+    <% posts?.forEach(function(post){ %>
+    <div class="profile__item">
+      <div class="profile__item__header">
+        <p><%= moment(post.dateCreated).calendar() %></p>
+        <a href="/posts/confirm/delete/<%= post._id %>">x</a>
+      </div>
+
+      <div class="profile__item__content">
+        <div class="profile__item__content__picture">
+          <% if(post.pictureName){ %>
+          <img src="/pictures/<%= post.pictureName %>" alt="picture" />
+          <% } else{ %>
+          <img src="/images/defaultpost.png" alt="picture" />
+          <% } %>
+        </div>
+
+        <div class="profile__item__content__content">
+          <%- post.content.slice(0, 200)%>
+        </div>
+      </div>
+
+      <div class="profile__buttons">
+        <a href="/posts/edit/<%= post._id %>">Edit</a>
+        <a href="/posts/<%= post._id %>">View</a>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+  <% } %>
+
+  <br />
+  <% if(comments && comments.length > 0){ %>
+  <h2>Your comments</h2>
+  <div class="profile__items">
+    <% comments?.forEach(function(comment){ %>
+    <div class="profile__item">
+      <div class="profile__item__header">
+        <p><%= moment(comment.dateCreated).calendar() %></p>
+        <a href="/comments/confirm/delete/<%= comment._id %>">x</a>
+      </div>
+
+      <div class="profile__item__content">
+        <%- comment.content.slice(0, 200)%>
+      </div>
+
+      <div class="profile__buttons">
+        <a href="/comments/edit/<%=comment._id%>">Edit</a>
+        <a href="/posts/<%= comment.toPost._id %>#comment<%=comment._id%>"
+          >View</a
+        >
+      </div>
+    </div>
+    <% }) %>
+  </div>
+  <% } %>
+
+  <a href="/profile/confirm/delete" class="btn">Delete Account</a>
+</div>

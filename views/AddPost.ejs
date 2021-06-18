@@ -1,0 +1,13 @@
+<% layout('layout') -%>
+
+<div class="post__TinyMCE__page">
+  <form id="addPost__form">
+    <textarea id="tinyMCE__addPost" name="content"></textarea>
+    <label for="file">Upload Picture</label>
+    <input type="file" name="file" id="file" accept="image/*" />
+    <div id="fileMimeError" class="flash__errorMessage" style="display: none">
+      <p>File should be image.</p>
+    </div>
+    <button type="submit">Post</button>
+  </form>
+</div>
